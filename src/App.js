@@ -15,7 +15,6 @@ function App() {
     const K = 5;
     const result = search(query, K);
     setSuggestion(result)
-    console.log(result);
   }
 
   const addBook = (index) => {
