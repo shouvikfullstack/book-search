@@ -9,7 +9,7 @@ function App() {
   }
   return (
     <div className="App">
-      <button onClick={() => getSearchResult('rule', 3)}>try</button>
+      <button onClick={() => getSearchResult('will', 3)}>try</button>
     </div>
   );
 }
