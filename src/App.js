@@ -34,7 +34,7 @@ function App() {
         <h1 style={{ padding: 20, margin: 'auto' }}>Search Books</h1>
         <input type="text" name="query" style={{ padding: 5, width: 300 }} value={selectedBook.title || ''} onChange={(e) => getSearchResult(e.target.value)} />
         <button onClick={() => addBookToResult()}>Submit</button>
-        {suggestion.length > 0 && <Suggestions books={suggestion} addBook={addBook} />}
+        {suggestion.length > 0 &&  selectedBook.title.length > 0 && <Suggestions books={suggestion} addBook={addBook} />}
       </div>
 
       <div>

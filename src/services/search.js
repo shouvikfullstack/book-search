@@ -7,6 +7,7 @@ const search = (query, K) => {
   console.log(searchQuery)
   for(let i=0; i< data.summaries.length; i++) {
     if(data.summaries[i].summary.match(searchQuery)){
+      console.log(data.summaries[i].summary.match(searchQuery))
       let result = {
         title: data.titles[i],
         summary: data.summaries[i],
