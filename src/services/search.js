@@ -6,7 +6,6 @@ const search = (query, K) => {
   const searchQuery = new RegExp(query, 'gi');
   for(let i=0; i< data.summaries.length; i++) {
     if(data.summaries[i].summary.match(searchQuery)){
-      console.log(data.summaries[i].summary.match(searchQuery))
       let result = {
         title: data.titles[i],
         summary: data.summaries[i],
@@ -16,11 +15,13 @@ const search = (query, K) => {
       searchedData.push(result)
     } 
   }
+  searchedData.sort(function(a, b){return b.found - a.found})
   if(searchedData.length > K) {
-    searchedData.sort(function(a, b){return b.found - a.found})
     for(let j=0; j<K; j++){
       finalData.push(searchedData[j]);
     }
+  } else {
+    finalData = searchedData
   }
   return finalData;
 }
