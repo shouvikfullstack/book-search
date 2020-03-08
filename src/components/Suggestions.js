@@ -2,9 +2,9 @@ import React from 'react'
 
 const Suggestions = (props) => {
   return (
-    <div>
-      <ul>
-        {props.books.map(book => <li>{book.title}</li>)}
+    <div style={{width: 400, margin: 'auto'}}>
+      <ul style={{}}>
+        {props.books.map((book, index) => <li key={index} onClick={() => props.addBook(index)}>{book.title}</li>)}
       </ul>
     </div>
   )

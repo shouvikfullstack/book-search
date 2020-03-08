@@ -3,7 +3,8 @@ import data from '../data/data.json'
 const search = (query, K) => {
   let searchedData = [];
   let finalData = [];
-  const searchQuery = new RegExp(query, 'g');
+  const searchQuery = new RegExp(query, 'gi');
+  console.log(searchQuery)
   for(let i=0; i< data.summaries.length; i++) {
     if(data.summaries[i].summary.match(searchQuery)){
       let result = {
