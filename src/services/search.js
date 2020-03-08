@@ -9,8 +9,8 @@ const search = (query, K) => {
     if(data.summaries[i].summary.match(searchQuery)){
       let result = {
         title: data.titles[i],
-        summaries: data.summaries[i],
-        authors: data.authors[i],
+        summary: data.summaries[i],
+        author: data.authors[i],
         found:  data.summaries[i].summary.match(searchQuery).length
       }
       searchedData.push(result)
