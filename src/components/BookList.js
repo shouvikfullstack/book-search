@@ -2,8 +2,8 @@ import React from 'react'
 
 const BookList = (props) => {
   return (
-    <div>
-      {props.books.map(book => <div>{book.title}</div>)}
+    <div className="books">
+      {props.books.map((book, index) => <div key={index}>{book.title}</div>)}
     </div>
   )
 }

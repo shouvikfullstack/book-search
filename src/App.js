@@ -7,7 +7,7 @@ import Suggestions from './components/Suggestions'
 
 function App() {
   const [books, setBooks ] = useState([])
-  const [selecteBook, setSelectedBook ] = useState('')
+  const [selectedBook, setSelectedBook ] = useState([])
   const [suggestion, setSuggestion] = useState([])
 
   const getSearchResult = (query) => {
@@ -21,15 +21,24 @@ function App() {
   const addBook = (index) => {
     setSelectedBook(suggestion[index])
   }
+
+  const addBookToResult = () => {
+    setBooks(books => books.concat(selectedBook))
+    setSelectedBook([])
+  }
+
   return (
     <div className="App">
       <div>
-        <input type="text" name="query" value={selecteBook.title} onChange={(e)=> getSearchResult(e.target.value)} style={{width: 300}}/>
-        <button onClick={() => addBook}>Search</button>
+        <h1 style={{padding: 20, margin: 'auto'}}>Search Books</h1>
+        <input type="text" name="query" value={selectedBook.title || ''} onChange={(e)=> getSearchResult(e.target.value)} style={{width: 300}}/>
+        <button onClick={() => addBookToResult()}>Submit</button>
+        <Suggestions books={suggestion} addBook={addBook}/>
       </div>
-      <Suggestions books={suggestion} addBook={addBook}/>
+      
       <div>
-        {books.length > 0 && <BookList books={books}/>}
+      {books.length == 0 && <p>No Books Selected</p>}
+         <BookList books={books}/>
       </div>
     </div>
   );
