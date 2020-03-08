@@ -1,7 +1,8 @@
 import data from '../data/data.json'
 
 const search = (query, K) => {
-  let searchedData = []
+  let searchedData = [];
+  let finalData = [];
   const searchQuery = new RegExp(query, 'g');
   for(let i=0; i< data.summaries.length; i++) {
     if(data.summaries[i].summary.match(searchQuery)){
@@ -16,8 +17,11 @@ const search = (query, K) => {
   }
   if(searchedData.length > K) {
     searchedData.sort(function(a, b){return b.found - a.found})
+    for(let j=0; j<K; j++){
+      finalData.push(searchedData[j]);
+    }
   }
-  return searchedData;
+  return finalData;
 }
 
 export default search;
